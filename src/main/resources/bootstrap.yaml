@@ -1,0 +1,25 @@
+# bootstrap.yml의 경우 git을 사용해야만 한다. 이 파일로 작성 시 로컬 파일 인식이 안된다.
+# 로컬 파일 인식은 applicatijon.properties 파일에 작성하면 된다.
+spring:
+    application:
+        name: config-server  # configserver 애플리케이션 이름 지정
+    profiles:
+        active: native  # 백엔드 저장소(파일 시스템)와 관련된 스프링 프로파일을 설
+    cloud:
+        config:
+            server: # 로컬 구성 정보: classpath 위치나 파일 시스템의 위치가 될 수 있다.
+                native: # 특정 파일 시스템 폴더에서 읽어옴
+                    search-locations: classpath:/config   # 구성 파일이 저장된 검색 위치를 설정(src/main/resources/config 폴더를 자동으로 찾음)
+
+server:
+    port: 8071
+
+# 컨피그 서버의 보안을 위한 대칭키
+encrypt:
+    key: erc94msaq1re8726qreckelqremcotre
+
+# 컨피그 서버의 보안을 위한 대칭키
+
+# 스프링 프로파일 종류
+# dev, test, staging, production, native
+# native는 클라우드 컨피그 서버용으로만 생성한 프로파일

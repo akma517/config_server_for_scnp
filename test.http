@@ -1,0 +1,17 @@
+### rest client는 "###"으로 리퀘스트 사이를 구분짓지 않으면 리퀘스트들을 구분하지 못하고 오작동할 수 있다.
+
+GET http://localhost:8071/licensing-service/default 
+
+###
+
+POST http://localhost:8071/encrypt
+Content-Type: text/plain
+
+"안녕"
+
+###
+
+POST http://localhost:8071/decrypt
+Content-Type: text/plain
+
+10067888f3ae39cbb650f156e5f1968cc6d8aa1e8a63a6348192d7c4715b62d7
