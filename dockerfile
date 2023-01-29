@@ -48,7 +48,7 @@ FROM openjdk:17-slim
 # 볼륨 포인트 추가 
 VOLUME /tmp
 
-# 언패키징된 애플리케이셔늘 새 컨테이너에 복사
+# 언패키징된 애플리케이션을 새 컨테이너에 복사
 ARG DEPENDENCY=/target/dependency
 
 COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib

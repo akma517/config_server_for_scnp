@@ -62,8 +62,25 @@
 				<artifactId>dockerfile-maven-plugin</artifactId>
 				<version>1.4.13</version>
 				<configuration>
-					<skip>true</skip>
+					<!-- 리모트 저장소 이름 설정, 플러그인에서 정의된 변수 사용 -->
+					<repository>${docker.image.prefix}/${project.artifactId}</repository>
+					<!-- 프로젝트 버전에 대한 저장소 태그 설정-->
+					<tag>${project.version}</tag>
+					<!-- JAR 파일 위치를 설정(dockerfile에서 사용됨)-->
+					<buildArgs>
+						<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+					</buildArgs>
 				</configuration>
+				<executions>
+					<execution>
+						<id>default</id>
+						<phase>install</phase>
+						<goals>
+							<goal>build</goal>
+							<goal>push</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

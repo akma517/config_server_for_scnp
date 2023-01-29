@@ -4,7 +4,7 @@ spring:
     application:
         name: config-server  # configserver 애플리케이션 이름 지정
     profiles:
-        active: native  # 백엔드 저장소(파일 시스템)와 관련된 스프링 프로파일을 설
+        active: native  # 백엔드 저장소(파일 시스템)와 관련된 스프링 프로파일을 설정
     cloud:
         config:
             server: # 로컬 구성 정보: classpath 위치나 파일 시스템의 위치가 될 수 있다.
